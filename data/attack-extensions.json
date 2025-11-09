@@ -1,0 +1,89 @@
+{
+  "schema_version": "2.0",
+  "title": "MITRE ATT&CK Extensions (N-Codes and Meta-Groups)",
+  "description": "Custom extensions to MITRE ATT&CK framework including pseudo-techniques for negative findings and meta-groups for attribution uncertainty",
+  "explanation": "N-codes provide standardized options for incident responders when techniques cannot be identified, confirmed, or investigated due to various constraints. Meta-groups provide attribution categories when specific threat actors cannot be identified.",
+  "techniques": {
+    "tactic_template": {
+    "technique": {
+      "name": "Not Found",
+      "description": "Use this selection when none of the standard techniques for this tactic were identified, observed, or can be investigated in this incident. The sub-options below help categorize why no techniques were found.",
+      "type": "pseudo_technique"
+    },
+    "sub_techniques": [
+      {
+        "id": ".001",
+        "name": "No activity of this kind was found",
+        "description": "After thorough investigation, no evidence of techniques from this tactic was identified in the incident. This indicates that the attacker either did not use techniques from this tactic or left no detectable traces."
+      },
+      {
+        "id": ".002", 
+        "name": "Unable to answer as data required does not exist due to configuration of customer environment",
+        "description": "The investigation cannot determine whether techniques from this tactic were used because the victim's environment lacks the necessary logging, monitoring, or data collection capabilities to detect such activities."
+      },
+      {
+        "id": ".003",
+        "name": "Unable to answer as data required does not exist due to attacker actions", 
+        "description": "The investigation cannot determine whether techniques from this tactic were used because the attacker's actions (such as log deletion, system cleaning, or evidence destruction) have removed or corrupted the necessary evidence."
+      },
+      {
+        "id": ".004",
+        "name": "Victim did not wish for this to be investigated",
+        "description": "The victim organization has specifically requested that techniques from this tactic not be investigated, analyzed, or reported on, typically due to legal, business, or privacy concerns."
+      },
+      {
+        "id": ".005",
+        "name": "Other reason",
+        "description": "Techniques from this tactic could not be investigated or confirmed for reasons other than those listed above. Additional details should be provided in the evidence collection phase to explain the specific circumstances."
+      }
+    ]
+    },
+    "special_codes": {
+      "N0000": {
+        "name": "None found",
+        "description": "Use this option when no items of this category (tools, malware, etc.) were identified in the incident",
+        "usage": "Applied to software categories (tools, malware) when nothing was detected or identified"
+      }
+    }
+  },
+  "groups": {
+    "meta_groups": [
+      {
+        "id": "N9998",
+        "external_id": "N9998",
+        "name": "APT (Advanced Persistent Threat)",
+        "description": "Select when evidence suggests APT activity but specific group cannot be identified. Characteristics may include sophisticated techniques, persistence mechanisms, targeted reconnaissance, or nation-state level capabilities.",
+        "type": "meta-group",
+        "aliases": ["APT", "Advanced Persistent Threat", "Nation State", "State-Sponsored"],
+        "category": "attribution_uncertainty",
+        "usage": "Use when threat actor exhibits APT characteristics but cannot be attributed to a specific known group",
+        "is_n_code": true,
+        "is_meta_group": true
+      },
+      {
+        "id": "N9997",
+        "external_id": "N9997", 
+        "name": "Cybercrime",
+        "description": "Select when evidence suggests financially motivated cybercrime but specific group cannot be identified. May include ransomware, banking trojans, cryptocurrency theft, or other profit-driven activities.",
+        "type": "meta-group",
+        "aliases": ["Financial Crime", "Ransomware", "Banking Trojan", "Financially Motivated", "Cybercriminal"],
+        "category": "attribution_uncertainty",
+        "usage": "Use when threat actor exhibits financially motivated criminal behavior but cannot be attributed to a specific known group",
+        "is_n_code": true,
+        "is_meta_group": true
+      },
+      {
+        "id": "N9999",
+        "external_id": "N9999",
+        "name": "Unknown Attribution", 
+        "description": "Select when threat actor attribution cannot be determined from available evidence. This may be due to limited evidence, sophisticated operational security, or lack of distinctive TTPs.",
+        "type": "meta-group",
+        "aliases": ["Unknown", "Unattributed", "Unknown Actor", "Unidentified", "Cannot Determine"],
+        "category": "attribution_uncertainty",
+        "usage": "Use when insufficient evidence exists to categorize the threat actor into APT, cybercrime, or known groups",
+        "is_n_code": true,
+        "is_meta_group": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "title": "Stage of Attack to MITRE ATT&CK Tactics Mapping",
+  "description": "Maps incident stage classifications to relevant MITRE ATT&CK tactics for filtering technique selection",
+  "mappings": {
+    "survey": {
+      "name": "Survey",
+      "description": "Early reconnaissance and information gathering phase",
+      "tactics": ["TA0042", "TA0043"]
+    },
+    "delivery": {
+      "name": "Delivery", 
+      "description": "Attempts to deliver malicious payload or gain initial access",
+      "tactics": ["TA0042", "TA0043", "TA0001"]
+    },
+    "isolated_breach": {
+      "name": "Isolated Breach",
+      "description": "Limited compromise of individual systems without lateral movement",
+      "tactics": ["TA0042", "TA0043", "TA0001", "TA0002", "TA0003", "TA0004", "TA0005", "TA0006", "TA0007", "TA0009", "TA0011", "TA0010"]
+    },
+    "extensive_breach": {
+      "name": "Extensive Breach",
+      "description": "Widespread compromise with lateral movement across the network",
+      "tactics": ["TA0042", "TA0043", "TA0001", "TA0002", "TA0003", "TA0004", "TA0005", "TA0006", "TA0007", "TA0008", "TA0009", "TA0011", "TA0010"]
+    },
+    "affect": {
+      "name": "Affect",
+      "description": "Direct impact on business operations, data destruction, or disruption",
+      "tactics": ["TA0042", "TA0043", "TA0001", "TA0002", "TA0003", "TA0004", "TA0005", "TA0006", "TA0007", "TA0008", "TA0009", "TA0011", "TA0010", "TA0040"]
+    }
+  }
+}

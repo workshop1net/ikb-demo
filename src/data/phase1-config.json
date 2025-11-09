@@ -1,0 +1,722 @@
+{
+  "schema_version": "1.0",
+  "title": "Incident Knowledge Recorder",
+  "description": "Comprehensive incident assessment questionnaire for cyber security incidents",
+  "pages": [
+    {
+      "id": "incident_basics",
+      "title": "Incident Basics",
+      "description": "Basic information about the incident and its classification.",
+      "explanation": "Please provide the fundamental details about this incident for proper categorization and tracking.",
+      "questions": [
+        {
+          "id": "incident_reference",
+          "type": "text_short",
+          "question": "Incident reference or ticket number",
+          "explanation": "Provide the unique identifier or ticket number assigned to this incident by your organization.",
+          "required": true,
+          "placeholder": "e.g., INC-2025-0001"
+        },
+        {
+          "id": "incident_title",
+          "type": "text_short",
+          "question": "Incident title or brief description",
+          "explanation": "Provide a short, descriptive title for this incident.",
+          "required": true,
+          "placeholder": "e.g., Ransomware attack on file servers"
+        },
+        {
+          "id": "incident_severity",
+          "type": "single_select",
+          "question": "What is the severity level of this incident?",
+          "explanation": "Select the severity classification based on business impact.",
+          "required": true,
+          "options": [
+            {
+              "value": "critical",
+              "label": "Critical - Severe business impact, immediate action required"
+            },
+            {
+              "value": "high",
+              "label": "High - Significant impact, urgent attention needed"
+            },
+            {
+              "value": "medium",
+              "label": "Medium - Moderate impact, timely response required"
+            },
+            {
+              "value": "low",
+              "label": "Low - Minor impact, standard response procedures"
+            },
+            {
+              "value": "informational",
+              "label": "Informational - No immediate impact, monitoring required"
+            }
+          ]
+        },
+        {
+          "id": "incident_status",
+          "type": "single_select",
+          "question": "What is the current status of this incident?",
+          "explanation": "Select the current phase of incident response.",
+          "required": true,
+          "options": [
+            {
+              "value": "detected",
+              "label": "Detected - Incident identified but not yet analyzed"
+            },
+            {
+              "value": "investigating",
+              "label": "Investigating - Active investigation in progress"
+            },
+            {
+              "value": "containing",
+              "label": "Containing - Taking action to limit spread/impact"
+            },
+            {
+              "value": "eradicating",
+              "label": "Eradicating - Removing threat from environment"
+            },
+            {
+              "value": "recovering",
+              "label": "Recovering - Restoring systems to normal operation"
+            },
+            {
+              "value": "closed",
+              "label": "Closed - Incident fully resolved"
+            },
+            {
+              "value": "monitoring",
+              "label": "Monitoring - Post-incident monitoring phase"
+            }
+          ]
+        },
+        {
+          "id": "related_incidents",
+          "type": "text_short",
+          "question": "Related incident references (if any)",
+          "explanation": "If this incident is related to or part of other incidents, provide their reference numbers.",
+          "required": false,
+          "placeholder": "e.g., INC-2025-0002, INC-2024-0123"
+        }
+      ]
+    },
+    {
+      "id": "organization_details",
+      "title": "Organization Details",
+      "description": "Information about your organization.",
+      "explanation": "Understanding your organization helps assess impact and determine appropriate response measures.",
+      "questions": [
+        {
+          "id": "organization_sector",
+          "type": "single_select",
+          "question": "What sector does your organization operate in?",
+          "explanation": "Select the primary business sector that best describes your organization.",
+          "required": true,
+          "options": [
+            {
+              "value": "academia",
+              "label": "Academia"
+            },
+            {
+              "value": "aerospace",
+              "label": "Aerospace"
+            },
+            {
+              "value": "automotive",
+              "label": "Automotive"
+            },
+            {
+              "value": "charities",
+              "label": "Charities"
+            },
+            {
+              "value": "civil_nuclear",
+              "label": "Civil Nuclear"
+            },
+            {
+              "value": "construction",
+              "label": "Construction"
+            },
+            {
+              "value": "consultancy",
+              "label": "Consultancy"
+            },
+            {
+              "value": "defence",
+              "label": "Defence"
+            },
+            {
+              "value": "diplomacy",
+              "label": "Diplomacy"
+            },
+            {
+              "value": "emergency_services",
+              "label": "Emergency Services"
+            },
+            {
+              "value": "energy_electricity",
+              "label": "Energy - Electricity"
+            },
+            {
+              "value": "energy_gas",
+              "label": "Energy - Gas"
+            },
+            {
+              "value": "energy_oil",
+              "label": "Energy - Oil"
+            },
+            {
+              "value": "engineering",
+              "label": "Engineering"
+            },
+            {
+              "value": "chemicals",
+              "label": "Chemicals"
+            },
+            {
+              "value": "environmental",
+              "label": "Environmental"
+            },
+            {
+              "value": "finance",
+              "label": "Finance"
+            },
+            {
+              "value": "food",
+              "label": "Food"
+            },
+            {
+              "value": "gov_agencies",
+              "label": "Government - Agencies and Public Bodies"
+            },
+            {
+              "value": "gov_regional",
+              "label": "Government - Regional/State Government"
+            },
+            {
+              "value": "gov_local",
+              "label": "Government - Local Government"
+            },
+            {
+              "value": "gov_ministerial",
+              "label": "Government - Ministerial/Cabinet Departments"
+            },
+            {
+              "value": "gov_non_ministerial",
+              "label": "Government - Non-Ministerial Departments"
+            },
+            {
+              "value": "gov_public_corps",
+              "label": "Government - Public Corporations"
+            },
+            {
+              "value": "health",
+              "label": "Health"
+            },
+            {
+              "value": "it",
+              "label": "IT"
+            },
+            {
+              "value": "intelligence",
+              "label": "Intelligence"
+            },
+            {
+              "value": "law_enforcement",
+              "label": "Law Enforcement"
+            },
+            {
+              "value": "legal",
+              "label": "Legal"
+            },
+            {
+              "value": "leisure",
+              "label": "Leisure"
+            },
+            {
+              "value": "managed_services",
+              "label": "Managed Services"
+            },
+            {
+              "value": "manufacturing",
+              "label": "Manufacturing"
+            },
+            {
+              "value": "media",
+              "label": "Media"
+            },
+            {
+              "value": "membership_orgs",
+              "label": "Membership Organisations"
+            },
+            {
+              "value": "mining",
+              "label": "Mining"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            },
+            {
+              "value": "pharmaceuticals",
+              "label": "Pharmaceuticals"
+            },
+            {
+              "value": "political",
+              "label": "Political"
+            },
+            {
+              "value": "postal_services",
+              "label": "Postal Services"
+            },
+            {
+              "value": "property",
+              "label": "Property"
+            },
+            {
+              "value": "rd",
+              "label": "R&D"
+            },
+            {
+              "value": "retail",
+              "label": "Retail"
+            },
+            {
+              "value": "telecoms",
+              "label": "Telecoms"
+            },
+            {
+              "value": "transport_aviation",
+              "label": "Transport - Aviation"
+            },
+            {
+              "value": "transport_maritime",
+              "label": "Transport - Maritime"
+            },
+            {
+              "value": "transport_rail",
+              "label": "Transport - Rail"
+            },
+            {
+              "value": "transport_road",
+              "label": "Transport - Road"
+            },
+            {
+              "value": "waste_management",
+              "label": "Waste Management"
+            },
+            {
+              "value": "water",
+              "label": "Water"
+            },
+            {
+              "value": "x_foreign",
+              "label": "X - Foreign"
+            }
+          ]
+        },
+        {
+          "id": "special_categories",
+          "type": "multi_select",
+          "question": "Does your organization fall into any special regulatory or compliance categories?",
+          "explanation": "Select all applicable regulatory or compliance frameworks that apply to your organization.",
+          "required": false,
+          "options": [
+            {
+              "value": "critical_infrastructure",
+              "label": "Critical Infrastructure"
+            },
+            {
+              "value": "regulated_industry",
+              "label": "Regulated Industry (Financial, Healthcare, etc.)"
+            },
+            {
+              "value": "government_contractor",
+              "label": "Government Contractor/Supplier"
+            },
+            {
+              "value": "nis_directive",
+              "label": "NIS Directive / NIS2 Covered Entity"
+            },
+            {
+              "value": "gdpr_high_risk",
+              "label": "High-Risk Data Processor (GDPR/Privacy)"
+            },
+            {
+              "value": "publicly_traded",
+              "label": "Publicly Traded Company"
+            },
+            {
+              "value": "none",
+              "label": "None of the above"
+            },
+            {
+              "value": "other",
+              "label": "Other (Please specify)"
+            }
+          ]
+        },
+        {
+          "id": "special_categories_other",
+          "type": "text_short",
+          "question": "Please specify the other regulatory/compliance category:",
+          "explanation": "Provide details about the special category not listed above.",
+          "required": true,
+          "show_when": {
+            "question_id": "special_categories",
+            "condition": "contains",
+            "value": "other"
+          }
+        },
+        {
+          "id": "organization_size",
+          "type": "single_select",
+          "question": "Organization size (in number of employees)",
+          "explanation": "Select the approximate size category of your organization.",
+          "required": true,
+          "options": [
+            {
+              "value": "micro",
+              "label": "Micro - 0-10"
+            },
+            {
+              "value": "small",
+              "label": "Small - 11-50"
+            },
+            {
+              "value": "medium",
+              "label": "Medium - 51-250"
+            },
+            {
+              "value": "large",
+              "label": "Large - 250+"
+            },
+            {
+              "value": "unknown",
+              "label": "Really Can't Tell"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "third_party_assistance",
+      "title": "External Assistance",
+      "description": "Information about external parties engaged to assist with incident response.",
+      "explanation": "Understanding what external resources were utilized helps assess response capabilities and resource allocation.",
+      "questions": [
+        {
+          "id": "used_third_party",
+          "type": "single_select",
+          "question": "Did your organization engage external assistance to respond to this incident?",
+          "explanation": "Indicate whether any third-party support was brought in to help with incident response.",
+          "required": true,
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes, external assistance was engaged"
+            },
+            {
+              "value": "no",
+              "label": "No, handled internally only"
+            },
+            {
+              "value": "unknown",
+              "label": "Unknown"
+            }
+          ]
+        },
+        {
+          "id": "third_party_type",
+          "type": "multi_select",
+          "question": "What types of external assistance were engaged?",
+          "explanation": "Select all types of third-party assistance that were utilized during incident response.",
+          "required": true,
+          "options": [
+            {
+              "value": "ir_company",
+              "label": "Incident Response / Forensics Firm"
+            },
+            {
+              "value": "external_legal",
+              "label": "External Legal Counsel"
+            },
+            {
+              "value": "insurance",
+              "label": "Cyber Insurance Provider/Broker"
+            },
+            {
+              "value": "it_provider",
+              "label": "Managed IT Service Provider"
+            },
+            {
+              "value": "security_vendor",
+              "label": "Security Vendor/VAR"
+            },
+            {
+              "value": "pr_comms",
+              "label": "Public Relations / Communications"
+            },
+            {
+              "value": "other",
+              "label": "Other (please specify)"
+            }
+          ],
+          "show_when": {
+            "question_id": "used_third_party",
+            "condition": "equals",
+            "value": "yes"
+          }
+        },
+        {
+          "id": "third_party_other_details",
+          "type": "text_short",
+          "question": "Please specify the other type of external assistance:",
+          "explanation": "Provide details about the type of assistance not listed above.",
+          "required": true,
+          "show_when": {
+            "question_id": "third_party_type",
+            "condition": "contains",
+            "value": "other"
+          }
+        },
+        {
+          "id": "ir_company_name",
+          "type": "text_short",
+          "question": "Name of the Incident Response / Forensics firm(s) engaged:",
+          "explanation": "Provide the name(s) of the IR/forensics companies that assisted with the response.",
+          "required": false,
+          "show_when": {
+            "question_id": "third_party_type",
+            "condition": "contains",
+            "value": "ir_company"
+          }
+        }
+      ]
+    },
+    {
+      "id": "incident_discovery",
+      "title": "Incident Discovery and Reporting",
+      "description": "How the incident was discovered and which authorities were notified.",
+      "explanation": "Understanding discovery and reporting methods helps assess detection capabilities and regulatory compliance.",
+      "questions": [
+        {
+          "id": "detection_method",
+          "type": "single_select",
+          "question": "How was the incident first detected?",
+          "explanation": "Select the method by which your organization first became aware of the incident.",
+          "required": true,
+          "options": [
+            {
+              "value": "external_notification",
+              "label": "External notification (law enforcement, government agency, etc.)"
+            },
+            {
+              "value": "internal_monitoring",
+              "label": "Internal monitoring/security tools"
+            },
+            {
+              "value": "customer_supplier",
+              "label": "Reported by customer/supplier/partner"
+            },
+            {
+              "value": "news_media",
+              "label": "News or media report"
+            },
+            {
+              "value": "unknown",
+              "label": "Unknown (please explain)"
+            },
+            {
+              "value": "other",
+              "label": "Other (please specify)"
+            }
+          ]
+        },
+        {
+          "id": "detection_unknown_explain",
+          "type": "text_short",
+          "question": "Please explain the unknown detection method:",
+          "explanation": "Provide details about why the detection method is unknown.",
+          "required": true,
+          "show_when": {
+            "question_id": "detection_method",
+            "condition": "equals",
+            "value": "unknown"
+          }
+        },
+        {
+          "id": "detection_other_specify",
+          "type": "text_short",
+          "question": "Please specify the other detection method:",
+          "explanation": "Provide details about the detection method not listed above.",
+          "required": true,
+          "show_when": {
+            "question_id": "detection_method",
+            "condition": "equals",
+            "value": "other"
+          }
+        },
+        {
+          "id": "incident_reported_to",
+          "type": "multi_select",
+          "question": "Was this incident reported to any external authorities or organizations?",
+          "explanation": "Select all external parties that were notified about this incident.",
+          "required": false,
+          "options": [
+            {
+              "value": "law_enforcement",
+              "label": "Law Enforcement"
+            },
+            {
+              "value": "ncsc",
+              "label": "NCSC (or national cybersecurity authority)"
+            },
+            {
+              "value": "data_protection",
+              "label": "Data Protection Authority/Regulator"
+            },
+            {
+              "value": "sector_regulator",
+              "label": "Sector-specific Regulator"
+            },
+            {
+              "value": "isac",
+              "label": "Information Sharing and Analysis Center (ISAC)"
+            },
+            {
+              "value": "insurance",
+              "label": "Cyber Insurance Provider"
+            },
+            {
+              "value": "none",
+              "label": "None - incident not reported externally"
+            },
+            {
+              "value": "other",
+              "label": "Other (please specify)"
+            }
+          ]
+        },
+        {
+          "id": "incident_reported_to_other",
+          "type": "text_short",
+          "question": "Please specify other organizations this incident was reported to:",
+          "explanation": "Provide details about other organizations that were notified about this incident.",
+          "required": true,
+          "show_when": {
+            "question_id": "incident_reported_to",
+            "condition": "contains",
+            "value": "other"
+          }
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "title": "Timeline",
+      "description": "Key dates and times in the incident lifecycle.",
+      "explanation": "Accurate timeline information is crucial for understanding the incident progression and response effectiveness.",
+      "questions": [
+        {
+          "id": "first_malicious_activity",
+          "type": "datetime_range",
+          "question": "When was the first malicious activity?",
+          "explanation": "Provide the timeframe of earliest known malicious activity. Use appropriate precision - if you only know it was sometime in a particular month, use month precision.",
+          "required": true,
+          "default_precision": "day",
+          "special_options": [
+            "unknown",
+            "na"
+          ]
+        },
+        {
+          "id": "incident_detected",
+          "type": "datetime_range",
+          "question": "When was the incident first detected?",
+          "explanation": "Provide the timeframe when your organization became aware of the incident. If exact time unknown, use appropriate precision level.",
+          "required": true,
+          "default_precision": "day",
+          "special_options": [
+            "unknown",
+            "na"
+          ]
+        },
+        {
+          "id": "incident_contained",
+          "type": "datetime_range",
+          "question": "When was the incident contained?",
+          "explanation": "Provide the specific date when the incident was successfully contained.",
+          "required": false,
+          "default_precision": "hour",
+          "special_options": [
+            "unknown",
+            "na"
+          ]
+        },
+        {
+          "id": "systems_recovered",
+          "type": "datetime_range",
+          "question": "When were systems recovered?",
+          "explanation": "Provide the date when your organization restored normal operations.",
+          "required": false,
+          "default_precision": "hour",
+          "special_options": [
+            "unknown",
+            "na"
+          ]
+        },
+        {
+          "id": "incident_closed",
+          "type": "datetime_range",
+          "question": "When was the incident response completed?",
+          "explanation": "Provide the timeframe when the incident investigation and response activities were concluded.",
+          "required": false,
+          "default_precision": "hour",
+          "special_options": [
+            "unknown",
+            "na"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage_of_attack",
+      "title": "Stage of Attack",
+      "description": "Assessment of which stage of attack this incident represents.",
+      "explanation": "Understanding the attack stage helps categorize the incident and determine the appropriate response measures.",
+      "questions": [
+        {
+          "id": "attack_stage",
+          "type": "single_select",
+          "question": "Which Stage of Attack best describes this incident?",
+          "explanation": "Select the stage that most accurately represents where this incident falls in the attack lifecycle. This helps determine the appropriate MITRE ATT&CK techniques and response priorities.",
+          "required": true,
+          "options": [
+            {
+              "value": "survey",
+              "label": "Survey - Reconnaissance and initial targeting (scanning, probing, information gathering)"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery - Initial compromise attempt detected (phishing, exploit attempt, malware delivery)"
+            },
+            {
+              "value": "isolated_breach",
+              "label": "Isolated Breach - Limited compromise of system(s), no evidence of lateral movement"
+            },
+            {
+              "value": "extensive_breach",
+              "label": "Extensive Breach - Compromise with lateral movement, persistence, or privilege escalation"
+            },
+            {
+              "value": "affect",
+              "label": "Affect - Impact phase with data exfiltration, destruction, or operational disruption"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

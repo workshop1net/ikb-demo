@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "title": "Phase 3 Validation Configuration",
+  "description": "Defines mandatory selections and validation requirements for Phase 3 software selection",
+  "explanation": "This configuration controls which categories in Phase 3 are required vs optional, enabling flexible business rule management",
+  
+  "validation_rules": {
+    "tools": {
+      "required": false,
+      "min_selections": 0,
+      "description": "Tools selection is optional",
+      "rationale": "Not all incidents involve identifiable tools"
+    },
+    "malware": {
+      "required": false,
+      "min_selections": 0, 
+      "description": "Malware selection is optional",
+      "rationale": "Not all incidents involve malware"
+    },
+    "groups": {
+      "required": true,
+      "min_selections": 1,
+      "description": "At least one group or meta-group must be selected for attribution analysis",
+      "rationale": "Attribution analysis is essential for threat intelligence and defensive planning",
+      "allow_meta_groups": true,
+      "meta_group_acceptable": true
+    }
+  },
+  
+  "validation_messages": {
+    "groups_required": "Please select at least one threat actor group or attribution category (APT, Cybercrime, Unknown) to continue. Attribution analysis is required for comprehensive incident assessment.",
+    "tools_optional": "Tools selection is optional. You may proceed without selecting tools.",
+    "malware_optional": "Malware selection is optional. You may proceed without selecting malware.",
+    "general_error": "Please complete the required selections to continue."
+  },
+  
+  "ui_behavior": {
+    "show_required_indicators": true,
+    "highlight_required_sections": true,
+    "block_navigation_on_validation_failure": true,
+    "show_progress_warnings": true
+  }
+}
